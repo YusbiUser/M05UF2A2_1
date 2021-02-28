@@ -1,0 +1,7 @@
+C:\Users\Usuario\source\repos\M05UF2A2_1\A2_2\bin\Debug\A2_2.exe.config
+C:\Users\Usuario\source\repos\M05UF2A2_1\A2_2\bin\Debug\A2_2.exe
+C:\Users\Usuario\source\repos\M05UF2A2_1\A2_2\bin\Debug\A2_2.pdb
+C:\Users\Usuario\source\repos\M05UF2A2_1\A2_2\obj\Debug\A2_2.csprojAssemblyReference.cache
+C:\Users\Usuario\source\repos\M05UF2A2_1\A2_2\obj\Debug\A2_2.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\M05UF2A2_1\A2_2\obj\Debug\A2_2.exe
+C:\Users\Usuario\source\repos\M05UF2A2_1\A2_2\obj\Debug\A2_2.pdb
