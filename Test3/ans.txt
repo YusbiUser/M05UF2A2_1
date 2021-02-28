@@ -1,0 +1,4 @@
+a) F = m · a
+b) P = m · v
+c) y = y0 + v0 · t + (a/2) · t^2
+d) Cap es correcte

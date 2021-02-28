@@ -1,0 +1,5 @@
+Quant és l'arrel quadrada de 169?
+Quant és el factorial de 4?
+Quant és la derivada de '24x + 5'?
+Quant és el valor de x de la equació 'x^2 - 2x + 1 = 0'?
+Quant és el combinatori de (6 3)?
