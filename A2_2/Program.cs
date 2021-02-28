@@ -38,78 +38,133 @@ namespace A2_2
                 }
                 Outcome(ans, ans1);
             }
+        }
 
-            static void Code1(int w, int h, int i)
+        static void Code1(int w, int h, int i)
+        {
+            Console.SetCursorPosition(w, h + i);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+        }
+
+        static void Outcome(string ans, string ans1)
+        {
+            int n = 0;
+            for (int i = 0; i < ans1.Length; i++) if (ans[i] == ans1[i]) n++;
+            Console.WriteLine("{0}/5", n);
+            Thread.Sleep(4000);
+            Console.Clear();
+            Main();
+        }
+
+        static int TestSelector(string[] S)
+        {
+            Console.BufferHeight = Console.WindowHeight;
+            Console.CursorVisible = false;
+
+            for (int i = 0; i < S.Length; i++)
             {
-                Console.SetCursorPosition(w, h + i);
-                Console.BackgroundColor = ConsoleColor.White;
-                Console.ForegroundColor = ConsoleColor.Black;
+                Console.SetCursorPosition(0, i);
+                Console.WriteLine(S[i]);
             }
+            Console.WriteLine();
 
-            static void Outcome(string ans, string ans1)
+            int j = 0;
+
+            var k = Console.ReadKey();
+
+            while (k.Key != ConsoleKey.Enter)
             {
-                int n = 0;
-                for (int i = 0; i < ans1.Length; i++) if (ans[i] == ans1[i]) n++;
-                Console.WriteLine("{0}/5", n);
-                Thread.Sleep(4000);
-                Console.Clear();
-                Main();
-            }
-
-            static int TestSelector(string[] S)
-            {
-                Console.BufferHeight = Console.WindowHeight;
-                Console.CursorVisible = false;
-
-                for (int i = 0; i < S.Length; i++)
+                switch (k.Key)
                 {
-                    Console.SetCursorPosition(0, i);
-                    Console.WriteLine(S[i]);
+                    case ConsoleKey.DownArrow:
+                        if (j == S.Length - 1) j = 0;
+                        else if (j >= 0 && j < S.Length) j++;
+                        for (int i = 0; i < S.Length; i++)
+                        {
+                            Console.SetCursorPosition(0, i);
+                            Console.WriteLine(S[i]);
+                        }
+                        Code1(0, 0, j);
+                        Console.WriteLine(S[j]);
+                        k = Console.ReadKey();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.UpArrow:
+                        if (j > 0 && j < S.Length) j--;
+                        else if (j == 0) j = S.Length - 1;
+                        for (int i = 0; i < S.Length; i++)
+                        {
+                            Console.SetCursorPosition(0, i);
+                            Console.WriteLine(S[i]);
+                        }
+                        Code1(0, 0, j);
+                        Console.WriteLine(S[j]);
+                        k = Console.ReadKey();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.Clear();
+                        break;
                 }
-                Console.WriteLine();
-
-                int j = 0;
-
-                var k = Console.ReadKey();
-
-                while (k.Key != ConsoleKey.Enter)
-                {
-                    switch (k.Key)
-                    {
-                        case ConsoleKey.DownArrow:
-                            if (j == S.Length - 1) j = 0;
-                            else if (j >= 0 && j < S.Length) j++;
-                            for (int i = 0; i < S.Length; i++)
-                            {
-                                Console.SetCursorPosition(0, i);
-                                Console.WriteLine(S[i]);
-                            }
-                            Code1(0, 0, j);
-                            Console.WriteLine(S[j]);
-                            k = Console.ReadKey();
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Black;
-                            Console.Clear();
-                            break;
-                        case ConsoleKey.UpArrow:
-                            if (j > 0 && j < S.Length) j--;
-                            else if (j == 0) j = S.Length - 1;
-                            for (int i = 0; i < S.Length; i++)
-                            {
-                                Console.SetCursorPosition(0, i);
-                                Console.WriteLine(S[i]);
-                            }
-                            Code1(0, 0, j);
-                            Console.WriteLine(S[j]);
-                            k = Console.ReadKey();
-                            Console.ResetColor();
-                            Console.BackgroundColor = ConsoleColor.Black;
-                            Console.Clear();
-                            break;
-                    }
-                }
-                return j;
             }
+            return j;
+        }
+
+        static int MenuSelector(string[] S)
+        {
+            Console.BufferHeight = Console.WindowHeight;
+            Console.CursorVisible = false;
+
+            for (int i = 0; i < S.Length; i++)
+            {
+                Console.SetCursorPosition(w1, h1 + i);
+                Console.WriteLine(S[i]);
+            }
+            Console.WriteLine();
+
+            int j = 0;
+
+            var k = Console.ReadKey();
+
+            while (k.Key != ConsoleKey.Enter)
+            {
+                switch (k.Key)
+                {
+                    case ConsoleKey.DownArrow:
+                        if (j == S.Length - 1) j = 0;
+                        else if (j >= 0 && j < S.Length) j++;
+                        for (int i = 0; i < S.Length; i++)
+                        {
+                            Console.SetCursorPosition(w1, h1 + i);
+                            Console.WriteLine(S[i]);
+                        }
+                        Code1(w1, h1, j);
+                        Console.WriteLine(S[j]);
+                        k = Console.ReadKey();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.Clear();
+                        break;
+                    case ConsoleKey.UpArrow:
+                        if (j > 0 && j < S.Length) j--;
+                        else if (j == 0) j = S.Length - 1;
+                        for (int i = 0; i < S.Length; i++)
+                        {
+                            Console.SetCursorPosition(w1, h1 + i);
+                            Console.WriteLine(S[i]);
+                        }
+                        Code1(w1, h1, j);
+                        Console.WriteLine(S[j]);
+                        k = Console.ReadKey();
+                        Console.ResetColor();
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.Clear();
+                        break;
+                }
+            }
+            return j;
         }
     }
 }
