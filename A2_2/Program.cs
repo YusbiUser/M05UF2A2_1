@@ -38,6 +38,23 @@ namespace A2_2
                 }
                 Outcome(ans, ans1);
             }
+
+            static void Code1(int w, int h, int i)
+            {
+                Console.SetCursorPosition(w, h + i);
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Black;
+            }
+
+            static void Outcome(string ans, string ans1)
+            {
+                int n = 0;
+                for (int i = 0; i < ans1.Length; i++) if (ans[i] == ans1[i]) n++;
+                Console.WriteLine("{0}/5", n);
+                Thread.Sleep(4000);
+                Console.Clear();
+                Main();
+            }
         }
     }
 }
