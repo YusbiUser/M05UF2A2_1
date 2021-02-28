@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Threading;
 
 namespace A2_2
 {
@@ -12,32 +14,29 @@ namespace A2_2
         static string[] S = new string[4], S1 = new string[5], MenuS = { " Test 1: Historia ", " Test 2: Mates    ", " Test 3: Física   ", "       Exit       " };
         static string path = @"C:\Users\Usuario\source\repos\prove10\", folder, src, ans, ans1;
 
-        static void Main(string[] args)
+        static void Main()
         {
-            static void Main()
-            {
-                Menu(MenuSelector(MenuS));
+            Menu(MenuSelector(MenuS));
 
-                src = path + folder + "ans.txt";
-                StreamReader sr;
-                sr = new StreamReader(src);
-                for (int i = 0; i < S.Length; i++) S[i] = sr.ReadLine();
-                sr.Close();
-                src = path + folder + "q.txt";
-                sr = new StreamReader(src);
-                for (int i = 0; i < S1.Length; i++) S1[i] = sr.ReadLine();
-                sr.Close();
-                src = path + folder + "ans1.txt";
-                sr = new StreamReader(src);
-                ans1 = sr.ReadLine();
-                sr.Close();
-                for (int i = 0; i < S1.Length; i++)
-                {
-                    Console.Title = S1[i];
-                    Test(TestSelector(S));
-                }
-                Outcome(ans, ans1);
+            src = path + folder + "ans.txt";
+            StreamReader sr;
+            sr = new StreamReader(src);
+            for (int i = 0; i < S.Length; i++) S[i] = sr.ReadLine();
+            sr.Close();
+            src = path + folder + "q.txt";
+            sr = new StreamReader(src);
+            for (int i = 0; i < S1.Length; i++) S1[i] = sr.ReadLine();
+            sr.Close();
+            src = path + folder + "ans1.txt";
+            sr = new StreamReader(src);
+            ans1 = sr.ReadLine();
+            sr.Close();
+            for (int i = 0; i < S1.Length; i++)
+            {
+                Console.Title = S1[i];
+                Test(TestSelector(S));
             }
+            Outcome(ans, ans1);
         }
 
         static void Code1(int w, int h, int i)
@@ -165,6 +164,44 @@ namespace A2_2
                 }
             }
             return j;
+        }
+
+        static void Test(int j)
+        {
+            switch (j)
+            {
+                case 0:
+                    ans += 'a';
+                    break;
+                case 1:
+                    ans += 'b';
+                    break;
+                case 2:
+                    ans += 'c';
+                    break;
+                case 3:
+                    ans += 'd';
+                    break;
+            }
+        }
+
+        static void Menu(int j)
+        {
+            switch (j)
+            {
+                case 0:
+                    folder = @"Test1\";
+                    break;
+                case 1:
+                    folder = @"Test2\";
+                    break;
+                case 2:
+                    folder = @"Test3\";
+                    break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
+            }
         }
     }
 }
